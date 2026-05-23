@@ -1,0 +1,145 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東大宮食事シミュレーター</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    #result {
+      margin-top: 40px;
+      background-color: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 300px;
+    }
+
+    .shop-name {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .info {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>東大宮グルメルーレット　†ひがおめし†</h1>
+
+  <p>ボタンを押して今日のご飯を決めよう！</p>
+
+  <button onclick="decideShop()">
+    今日のご飯を決める
+  </button>
+
+  <div id="result">
+    <p>ここに結果が表示されます</p>
+  </div>
+
+  <script>
+    const shops = [
+      {
+        name: "一條苑",
+        info: "https://h-omiya.com/archives/shop/ichijoen"
+      },
+
+      {
+        name: "らーめんランド壱番館",
+        info: "https://h-omiya.com/archives/shop/ichibankan"
+      },
+
+      {
+        name: "そば処　大菊",
+        info: "https://h-omiya.com/archives/shop/ogiku"
+      },
+      {
+        name: "玄海寿司",
+        info: "https://h-omiya.com/archives/shop/genkaizushi"
+      },
+
+      {
+        name:"インド料理 DURGA(ドゥルガ)",
+        info:"https://h-omiya.com/archives/shop/durga"
+      },
+      
+      {
+        name:"そば処　巴屋",
+        info:"https://h-omiya.com/archives/shop/tomoeya"
+      },
+      
+      {
+        name:"からあげ専門店 鶏笑 東大宮店",
+        info:"https://h-omiya.com/archives/shop/torisho"
+      },
+      
+      {
+        name:"やきとりや NOKAOI",
+        info:"https://h-omiya.com/archives/shop/nokaoi"
+      },
+      
+      {
+        name:"まどいびより 円居日和",
+        info:"https://h-omiya.com/archives/shop/madoibiyori"
+      },
+      
+    ];
+
+    function decideShop() {
+
+      const randomIndex = Math.floor(Math.random() * shops.length);
+
+      const shop = shops[randomIndex];
+
+      document.getElementById("result").innerHTML = `
+        <div class="shop-name">${shop.name}</div>
+
+        <div class="info">
+          <a href="${shop.info}" target="_blank">
+            お店の情報を見る
+          </a>
+        </div>
+      `;  
+    }
+  </script>
+
+</body>
+</html>
