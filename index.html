@@ -196,6 +196,8 @@
 
     function decideShop() {
 
+      gtag('event', 'gacha_spin');
+      
       const randomIndex = Math.floor(Math.random() * shops.length);
 
       const shop = shops[randomIndex];
