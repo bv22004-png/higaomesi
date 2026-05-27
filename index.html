@@ -194,30 +194,34 @@
       
     ];
 
-    function decideShop() {
+           function trackShopClick(shopName) {
+  gtag('event', 'shop_click', {
+    shop_name: shopName
+  });
+}
 
-      gtag('event', 'gacha_spin');
-      
-      const randomIndex = Math.floor(Math.random() * shops.length);
+function decideShop() {
 
-      const shop = shops[randomIndex];
+  gtag('event', 'gacha_spin');
+  
+  const randomIndex = Math.floor(Math.random() * shops.length);
 
-      document.getElementById("result").innerHTML = `
-        <div class="shop-name">${shop.name}</div>
+  const shop = shops[randomIndex];
 
-        <div class="info">
-          <a 
-            href="${shop.info}" 
-            target="_blank"
-            onclick="gtag('event', 'shop_click', {
-            shop_name: '${shop.name}'
-            })"
-          >
-          お店の情報を見る
-          </a>
-        </div>
-      `;  
-    }
+  document.getElementById("result").innerHTML = `
+    <div class="shop-name">${shop.name}</div>
+
+    <div class="info">
+      <a 
+        href="${shop.info}" 
+        target="_blank"
+        onclick="trackShopClick('${shop.name}')"
+      >
+      お店の情報を見る
+      </a>
+    </div>
+  `;  
+}
   </script>
 
 </body>
