@@ -206,8 +206,14 @@
         <div class="shop-name">${shop.name}</div>
 
         <div class="info">
-          <a href="${shop.info}" target="_blank">
-            お店の情報を見る
+          <a 
+            href="${shop.info}" 
+            target="_blank"
+            onclick="gtag('event', 'shop_click', {
+            shop_name: '${shop.name}'
+            })"
+          >
+          お店の情報を見る
           </a>
         </div>
       `;  
